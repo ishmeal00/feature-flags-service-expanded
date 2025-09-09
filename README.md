@@ -33,3 +33,19 @@ For the **Enterprise Edition** with advanced features (RBAC, Billing, Analytics,
 ```bash
 git clone https://github.com/your-username/feature-flags-community.git
 cd feature-flags-community
+
+cd backend
+npm install
+
+DATABASE_URL=postgres://user:password@localhost:5432/featureflags
+PORT=4000
+JWT_SECRET=supersecret
+
+psql $DATABASE_URL -f sql/init_db.sql
+
+npm run dev
+
+cd ../admin
+npm install
+npm run dev
+
